@@ -1,3 +1,5 @@
+// following the first half of this link https://www.youtube.com/watch?v=-mRlc_vjiqE
+
 // base URL
 def base = 'http://chart.apis.google.com/chart?'
 
@@ -27,6 +29,8 @@ SwingBuilder.build() {
             constraints:BL.CENTER)
         }.pack()
 }
+
+println "hello world!"
 
 
 
