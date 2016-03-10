@@ -8,15 +8,28 @@ def pigLatinNormalWord(string) {
 }
 
 def convertToPigLatin(sentenceToConvert) {
-	def vowels = ['a','e','i','o','u','A','E','I','O','U']
+	// def vowels = ['a','e','i','o','u','A','E','I','O','U']
+	def vowels = [
+					a: true,
+					e: true,
+					i: true,
+					o: true,
+					u: true,
+					A: true,
+					E: true,
+					I: true,
+					O: true,
+					U: true
+					]
+	
 	wordsSplit = sentenceToConvert.split(" ")
 	accumulator = ""
-	// Why won't uppercase work? Is it a class issue?
 	wordsSplit.each { element ->
-		
-		if (vowels.contains(element[0])) { // if it starts with a vowel
+		if (vowels[element[0]]) { // if it starts with a vowel. 
+			//Remove first iteration for hash constant lookup.
 			accumulator += element + " "
 		} else {
+			// learned valuable lesson that there is a class difference between characters and strings
 			if (Character.isUpperCase(element.charAt(0))) {
 				firstLetter = element.charAt(0).toLowerCase().toString()
 				word = firstLetter + element.substring(1)
@@ -33,7 +46,9 @@ def convertToPigLatin(sentenceToConvert) {
 }
 
 
-println pigLatinNormalWord("normal")
 println convertToPigLatin(sentence)
 
 assert convertToPigLatin("Hello") == "Ellohay"
+assert convertToPigLatin("Electrocute") == "Electrocute"
+assert convertToPigLatin("hello") == "ellohay"
+assert convertToPigLatin("electrocute") == "electrocute"
