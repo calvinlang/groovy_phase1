@@ -3,7 +3,7 @@
 
 def collection = 1..50
 
-def fizzbuzz(number_collection) {
+def fizzBuzz(number_collection) {
 	number_collection.each { element ->
 		if (element % 3 == 0 && element % 5 == 0) {
 			println "fizzbuzz"
@@ -17,5 +17,5 @@ def fizzbuzz(number_collection) {
 	}
 }
 
-fizzbuzz(collection)
+fizzBuzz(collection)
 

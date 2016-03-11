@@ -23,16 +23,16 @@ def convertToPigLatin(sentenceToConvert) {
 					]
 	
 	wordsSplit = sentenceToConvert.split(" ")
-	accumulator = ""
+	String accumulator = ""
 	wordsSplit.each { element ->
 		if (vowels[element[0]]) { // if it starts with a vowel. 
 			//Remove first iteration for hash constant lookup.
 			accumulator += element + " "
 		} else {
 			// learned valuable lesson that there is a class difference between characters and strings
-			if (Character.isUpperCase(element.charAt(0))) {
-				firstLetter = element.charAt(0).toLowerCase().toString()
-				word = firstLetter + element.substring(1)
+			if (Character.isUpperCase(element.charAt(0))) { //uppercase
+				String firstLetter = element.charAt(0).toLowerCase()
+				String word = firstLetter + element.substring(1)
 				word = pigLatinNormalWord(word)
 				firstLetter = word.charAt(0).toUpperCase().toString()
 				word = firstLetter + word.substring(1)
@@ -42,7 +42,7 @@ def convertToPigLatin(sentenceToConvert) {
 			}
 		}
 	}
-	accumulator[0..-2]
+	accumulator[0..-2] // to remove the extra space at the end
 }
 
 

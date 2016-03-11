@@ -23,4 +23,14 @@ class Stadium {
 	}
 }
 
+def stadiums = []
+stadiums << new Stadium(name:'Angel Stadium',team:'ana')
+stadiums << new Stadium(name:'Chase Field',team:'ari')
+stadiums << new Stadium(name:'Turner Field',team:'atl')
+stadiums << new Stadium(name:'Oriole Field',team:'bal')
+stadiums << new Stadium(name:'Rogers Centre',team:'tor')
 
+
+println stadiums.each { 
+	s -> s.fillInLatLong()
+}
