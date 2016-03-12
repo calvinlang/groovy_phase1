@@ -4,6 +4,7 @@ class Project {
 	String name
 	String description
 	Date dueDate
+	String billingType
 	String toString() {
 		"${name}"
 	}
@@ -11,8 +12,9 @@ class Project {
 	static hasMany = [tasks: Task]
 
     static constraints = {
-    	name()
+    	name(blank: false, unique: true)
     	description()
-    	dueDate()
+    	dueDate(min: new Date())
+    	billingType(inList: ["Hourly", "Milestone", "Nonbillable"])
     }
 }
